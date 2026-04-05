@@ -1,0 +1,5 @@
+Competitor Analysis
+
+AMD continues to invest aggressively in AI accelerators and data-center products.
+Custom silicon providers may capture selected workloads if cost efficiency becomes a higher priority.
+NVIDIA retains notable advantages in ecosystem maturity, software tooling, and deployment scale, though those advantages may narrow if competitors execute well.

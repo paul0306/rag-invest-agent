@@ -1,0 +1,9 @@
+{
+  "chunk_count": 4,
+  "sources": [
+    "competitor_analysis.txt",
+    "nvda_q1.txt",
+    "nvda_q2.txt",
+    "sector_report.txt"
+  ]
+}

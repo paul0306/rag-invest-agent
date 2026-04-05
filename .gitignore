@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+vector_store/index.faiss
+vector_store/index.pkl
+*.pyc

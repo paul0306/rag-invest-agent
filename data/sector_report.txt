@@ -1,0 +1,5 @@
+Semiconductor Sector Report
+
+The AI infrastructure cycle has increased demand for high-performance accelerators, networking, and memory.
+Sector upside drivers include sovereign AI investment, hyperscaler capital expenditure, and software platform attach rates.
+Sector downside risks include cyclical digestion periods, inventory corrections, export restrictions, and increased competition from custom silicon and merchant accelerators.
