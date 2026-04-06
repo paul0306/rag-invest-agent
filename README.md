@@ -41,7 +41,7 @@ Retrieval 層結合了：
 
 ---
 
-## 三、系統架構
+## 二、系統架構
 
 ```text
 User Query
@@ -81,7 +81,7 @@ LLM / Agent
 
 ---
 
-## 四、專案結構
+## 三、專案結構
 
 ```text
 rag-invest-agent/
@@ -101,7 +101,7 @@ rag-invest-agent/
 
 ---
 
-## 五、技術棧
+## 四、技術棧
 
 - **Backend API**：FastAPI
 - **Agent Framework**：LangChain
@@ -112,7 +112,7 @@ rag-invest-agent/
 
 ---
 
-## 六、主要模組說明
+## 五、主要模組說明
 
 ### `app/services/agent_service.py`
 負責建立 Gemini chat model 與 LangChain agent，並提供 `run_analysis()` 當作整個系統的主要入口。
@@ -146,7 +146,7 @@ rag-invest-agent/
 
 ---
 
-## 七、如何啟動專案
+## 六、如何啟動專案
 
 ### 1. 安裝套件
 
@@ -190,7 +190,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 八、API 說明
+## 七、API 說明
 
 ### `GET /health`
 回傳服務健康狀態與向量索引是否已準備完成。
