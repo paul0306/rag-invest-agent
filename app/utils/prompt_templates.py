@@ -1,3 +1,4 @@
+# Prompt templates used by the agent.
 SYSTEM_PROMPT = """
 You are a financial research agent.
 

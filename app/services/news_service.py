@@ -1,7 +1,11 @@
+# Mock news adapter.
+# The project can run with only a Gemini API key because recent headlines
+# are represented by a small in-memory lookup table.
 from __future__ import annotations
 
 from typing import List
 
+# Local fallback headlines keyed by ticker/company name.
 MOCK_NEWS = {
     "nvda": [
         "Hyperscaler AI infrastructure spending remains elevated.",
@@ -21,6 +25,7 @@ MOCK_NEWS = {
 }
 
 
+# Return bullet-form mock headlines so the agent can reason over "recent news".
 def search_news(query: str) -> str:
     normalized = query.lower()
     hits: List[str] = []

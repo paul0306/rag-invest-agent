@@ -1,3 +1,4 @@
+# Centralized runtime configuration loaded from environment variables.
 import os
 from functools import lru_cache
 from pathlib import Path
@@ -8,6 +9,7 @@ from pydantic import BaseModel, Field
 load_dotenv()
 
 
+# Application settings with sensible defaults for local development.
 class Settings(BaseModel):
     google_api_key: str = Field(default_factory=lambda: os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY", ""))
     model_name: str = Field(default_factory=lambda: os.getenv("MODEL_NAME", "gemini-2.5-flash"))
@@ -21,6 +23,7 @@ class Settings(BaseModel):
     temperature: float = 0.1
 
 
+# Cache parsed settings so repeated imports do not re-read the environment.
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     return Settings()

@@ -1,3 +1,6 @@
+# Agent assembly layer.
+# This module wires the Gemini chat model to LangChain tools and exposes
+# a single helper for running an end-to-end analysis request.
 from __future__ import annotations
 
 from langchain.agents import create_agent
@@ -8,6 +11,7 @@ from app.utils.config import get_settings
 from app.utils.prompt_templates import OUTPUT_INSTRUCTIONS, SYSTEM_PROMPT
 
 
+# Lazily construct the Gemini chat model from environment-backed settings.
 def _get_llm() -> ChatGoogleGenerativeAI:
     settings = get_settings()
     if not settings.google_api_key:
@@ -20,6 +24,7 @@ def _get_llm() -> ChatGoogleGenerativeAI:
     )
 
 
+# Create a fresh agent instance with the project tools and system prompt.
 def _build_agent():
     return create_agent(
         model=_get_llm(),
@@ -28,6 +33,7 @@ def _build_agent():
     )
 
 
+# Execute the full agent workflow and normalize the final response into text.
 def run_analysis(query: str) -> str:
     agent = _build_agent()
     result = agent.invoke(
