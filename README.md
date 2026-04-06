@@ -127,8 +127,6 @@ rag-invest-agent/
 - 執行 hybrid retrieval
 - 組出可以直接送進 LLM 的 context
 
-這是專案最核心的 RAG 實作區。
-
 ### `app/services/tools.py`
 定義 agent 可呼叫的工具：
 
