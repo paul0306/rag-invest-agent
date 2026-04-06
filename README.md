@@ -150,33 +150,13 @@ rag-invest-agent/
 
 ## 七、如何啟動專案
 
-### 1. 建立虛擬環境
-
-```bash
-python -m venv .venv
-```
-
-啟用虛擬環境：
-
-- macOS / Linux
-
-```bash
-source .venv/bin/activate
-```
-
-- Windows
-
-```bash
-.venv\Scriptsctivate
-```
-
-### 2. 安裝套件
+### 1. 安裝套件
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. 設定 Gemini API Key
+### 2. 設定 Gemini API Key
 
 複製設定檔：
 
@@ -190,19 +170,19 @@ cp .env.example .env
 GOOGLE_API_KEY=your_gemini_api_key_here
 ```
 
-### 4. 建立向量索引
+### 3. 建立向量索引
 
 ```bash
 python scripts/build_index.py
 ```
 
-### 5. 啟動 FastAPI
+### 4. 啟動 FastAPI
 
 ```bash
 python -m uvicorn app.main:app --reload
 ```
 
-### 6. 打開 Swagger UI
+### 5. 打開 Swagger UI
 
 啟動後可在瀏覽器查看：
 
