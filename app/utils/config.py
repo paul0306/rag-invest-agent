@@ -16,6 +16,9 @@ class Settings(BaseModel):
     embedding_model: str = Field(default_factory=lambda: os.getenv("EMBEDDING_MODEL", "gemini-embedding-2-preview"))
     vector_store_path: Path = Field(default_factory=lambda: Path(os.getenv("VECTOR_STORE_PATH", "vector_store")))
     data_dir: Path = Field(default_factory=lambda: Path(os.getenv("DATA_DIR", "data")))
+    news_base_url: str = Field(default_factory=lambda: os.getenv("NEWS_BASE_URL", "https://news.google.com/rss/search"))
+    news_max_results: int = Field(default_factory=lambda: int(os.getenv("NEWS_MAX_RESULTS", "6")))
+    news_timeout_seconds: float = Field(default_factory=lambda: float(os.getenv("NEWS_TIMEOUT_SECONDS", "8")))
     retriever_k: int = 4
     mmr_fetch_k: int = 8
     chunk_size: int = 700

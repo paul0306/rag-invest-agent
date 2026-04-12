@@ -2,22 +2,13 @@
 
 這是一個以 **FastAPI + LangChain + Gemini API + FAISS** 為核心的作品集專案，主題聚焦在 **投資研究 / 財報問答 / 風險分析**。專案使用 **Agentic RAG** 架構：先做文件檢索，再讓具備 tool routing 能力的 agent 根據問題內容決定要不要使用 **RAG 文件檢索、新聞摘要、風險分析** 等工具，最後生成結構化研究摘要。
 
-這個專案的定位不是做成複雜的交易系統，而是做成一個 **適合放在履歷、GitHub 與面試中展示的 LLM backend 專案**：
-
-- 有清楚的 **API 層**（FastAPI）
-- 有清楚的 **Agent 層**（LangChain + Gemini）
-- 有清楚的 **Retrieval 層**（FAISS + BM25 + MMR）
-- 有清楚的 **效能優化與 benchmark**（cache / retrieval profiling）
-
----
-
 ## 一、專案亮點
 
 ### 1. Agentic RAG，而不只是單純問答
 本專案不是把文件餵進 LLM 就結束，而是透過 LangChain agent 讓模型可以根據問題內容選擇不同工具：
 
 - `rag_search`：查本地財報 / 研究文件
-- `news_search`：查近期新聞摘要（目前為 mock 版本）
+- `news_search`：查近期市場新聞摘要（Google News RSS 即時抓取 + 結構化整理）
 - `risk_analyzer`：補充啟發式風險清單
 
 這讓系統能夠更接近實務上的「研究助理」流程，而不是單一步驟的 QA demo。
@@ -88,7 +79,7 @@ rag-invest-agent/
 ├── app/
 │   ├── api/                 # FastAPI routes
 │   ├── models/              # Pydantic schemas
-│   ├── services/            # Agent / RAG / tools / cache / mock news
+│   ├── services/            # Agent / RAG / tools / cache / live news adapter
 │   └── utils/               # Config and prompt templates
 ├── data/                    # Local research documents used for indexing
 ├── scripts/                 # Index build and benchmark scripts
@@ -166,6 +157,14 @@ cp .env.example .env
 
 ```env
 GOOGLE_API_KEY=your_gemini_api_key_here
+```
+
+可選的新聞設定：
+
+```env
+NEWS_BASE_URL=https://news.google.com/rss/search
+NEWS_MAX_RESULTS=6
+NEWS_TIMEOUT_SECONDS=8
 ```
 
 ### 3. 建立向量索引
