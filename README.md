@@ -9,7 +9,6 @@
 
 - `rag_search`：查本地財報 / 研究文件
 - `news_search`：查近期市場新聞摘要（Google News RSS 即時抓取 + 結構化整理）
-- `risk_analyzer`：補充啟發式風險清單
 
 這讓系統能夠更接近實務上的「研究助理」流程，而不是單一步驟的 QA demo。
 
